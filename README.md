@@ -1,1 +1,1 @@
-![251117_2TEAM_유스케이스.drawio.png](img/251117_2TEAM_%E1%84%8B%E1%85%B2%E1%84%89%E1%85%B3%E1%84%8F%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%89%E1%85%B3.drawio.png)
+![251117_2TEAM_usecase.drawio.png](img/251117_2TEAM_usecase.drawio.png)
