@@ -2,3 +2,4 @@
 ![251117_2TEAM_usecase.drawio.png](img/2team_usecase_diagram.png)
 
 # ERD
+![2team_ERD.png](img/2team_ERD.png)
