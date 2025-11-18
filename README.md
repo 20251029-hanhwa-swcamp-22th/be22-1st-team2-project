@@ -3,7 +3,7 @@
 #### 사이트 이용 고객에게 고객 니즈에 맞게 필터링을 통한 가장 빠르고 간단한 시스템이 장점인 시스템입니다. 불필요한 기능을 줄이고 실제 예약 서비스의 핵심 기능만 정확하게 구현하는 것이 목표로 프로그램 설계하였습니다.
 ## 2. 팀 소개
     - 강성훈(팀장) : 
-    - 김신우(팀원) : DB 아키텍쳐 제작 및 수정, 
+    - 김신우(팀원) : DB 아키텍쳐 제작 및 수정, DB 정규화 작업
     - 정병진(팀원) : 전반적인 자료 수집, 데이터 수정 등 기획 서포터
     - 이유리(팀원) : 서기
 
@@ -107,7 +107,7 @@ https://www.notion.so/ohgiraffers/2a9649136c11811a957ed22c05320077
   - Linux(Ubuntu) 설정 파일 이미지
   ![linux_setting.png](img/linux_setting.png)
   - MariaDB 계정 연동 확인 이미지
-  ![msriadb_account_integration.png](img/msriadb_account_integration.png)
+  ![msriadb_account_integration.png](img/mariadb_account_integration.png)
 
 ## 테스트케이스
     - 시나리오별 SQL 및 실행 결과
