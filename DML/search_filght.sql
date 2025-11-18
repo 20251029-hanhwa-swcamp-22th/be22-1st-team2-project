@@ -93,5 +93,5 @@ SELECT
     (go_adult_price  + back_adult_price) * 2 AS total_adult_price
 FROM go
 CROSS JOIN back
-ORDER BY total_adult_price ASC;
+ORDER BY total_adult_price;
 
