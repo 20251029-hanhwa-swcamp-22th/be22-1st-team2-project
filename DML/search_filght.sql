@@ -95,3 +95,5 @@ FROM go
 CROSS JOIN back
 ORDER BY total_adult_price ASC;
 
+SELECT *
+FROM AIRLINE

@@ -1,7 +1,10 @@
 -- =======================================================================
 -- 1. Table Creation and CHECK Constraints
 -- =======================================================================
-
+/*CREATE USER 'trip'@'%' IDENTIFIED BY 'trip';
+CREATE DATABASE tripdb;
+GRANT ALL PRIVILEGES ON tripdb.* TO 'trip'@'%';
+GRANT ALL PRIVILEGES ON tripdb.* TO 'trip'@'localhost' IDENTIFIED BY 'trip' WITH GRANT OPTION ;*/
 CREATE USER 'trip'@'%' IDENTIFIED BY 'trip';
 CREATE DATABASE tripdb;
 GRANT ALL PRIVILEGES ON tripdb.* TO 'trip'@'%';
@@ -365,9 +368,18 @@ INSERT INTO `AIRLINE_AIRCRAFT` (`aircraft_id`, `airline_id`) VALUES
 
 -- Sample Data for USER
 INSERT INTO `USER` (`user_id`, `name`, `gender`, `birth_date`, `email`, `phone`, `address`, `residence_country`, `preferred_language`, `preferred_currency`, `preferred_airline`, `preferred_seat_class`, `nickname`, `account_status`) VALUES
-(1, '김철수', 'M', '1990-05-15', 'kim.cs@example.com', '010-1234-5678', '서울시 강남구', 'KR', 'ko', 'KRW', 'KE', 'ECONOMY', '철수', 'ACTIVE'),
+(1, '김철수', 'M', '1990-05-15', 'kim.cs@example.com','010-1234-5678', '서울시 강남구', 'KR', 'ko', 'KRW', 'KE', 'ECONOMY', '철수', 'ACTIVE'),
 (2, '이영희', 'W', '1988-11-22', 'lee.yh@example.com', '010-9876-5432', '부산시 해운대구', 'KR', 'ko', 'KRW', 'OZ', 'BUSINESS', '영희', 'ACTIVE'),
 (3, 'John Doe', 'M', '1985-03-10', 'john.doe@example.com', '001-123-4567', '123 Main St, New York', 'US', 'en', 'USD', NULL, 'FIRST', 'JD', 'ACTIVE');
+
+-- 비밀번호(해시 값) 컬럼 추가
+ALTER TABLE `USER`
+    ADD COLUMN `password_hash` VARCHAR(255) NULL COMMENT '비밀번호 해시값' AFTER `email`;
+-- 유저 비밀번호 Null 값 임시 비밀번호 설정(해시 값 설정)
+UPDATE USER
+SET password_hash = SHA2('temp1234', 256) -- 임시 비밀번호 temp1234
+WHERE password_hash IS NULL;
+
 
 -- Sample Data for PASSENGER
 -- Assuming user_id 1 is Kim Cheol-su, user_id 2 is Lee Young-hee, user_id 3 is John Doe
@@ -574,6 +586,8 @@ BEGIN
 END //
 DELIMITER ;
 
+
+
 DELIMITER //
 CREATE PROCEDURE `CancelReservation`(
     IN p_reservation_id BIGINT,
@@ -653,3 +667,5 @@ BEGIN
     END IF;
 END //
 DELIMITER ;
+
+select *
