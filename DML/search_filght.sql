@@ -85,7 +85,7 @@ back AS (
     JOIN AIRLINE AL           ON AA.airline_id = AL.airline_id
     WHERE F.origin_airport_id = 'NRT'
       AND F.destination_airport_id = 'LAX'
-      AND AL.airline_category = 'FSC'
+      AND AL.airline_name = 'FSC'
       AND F.seat_class = 'BUSINESS'
 )
 SELECT
@@ -95,5 +95,3 @@ FROM go
 CROSS JOIN back
 ORDER BY total_adult_price ASC;
 
-SELECT *
-FROM AIRLINE
